@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Resets ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply font-sans text-sage-900 antialiased;
+  background: linear-gradient(145deg, #f4f7f4 0%, #fdf8f0 50%, #faf0e0 100%);
+  min-height: 100vh;
+}
+
+/* ── Glassmorphism Utility Classes ── */
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-sm border border-white/50 shadow-glass;
+  }
+
+  .glass-card-dark {
+    @apply bg-sage-700/80 backdrop-blur-sm border border-sage-600/50 shadow-glass;
+  }
+
+  .btn-primary {
+    @apply bg-sage-500 hover:bg-sage-600 text-white font-semibold
+           px-5 py-2.5 rounded-xl transition-all duration-300
+           shadow-md hover:shadow-lg hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-sage-400 focus:ring-offset-2;
+  }
+
+  .btn-gold {
+    @apply bg-gold-gradient text-sage-900 font-semibold
+           px-5 py-2.5 rounded-xl transition-all duration-300
+           shadow-gold-glow hover:shadow-lg hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-sage-400 text-sage-600 hover:bg-sage-50 font-semibold
+           px-5 py-2.5 rounded-xl transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-sage-400 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply text-sage-600 hover:bg-sage-100 font-medium
+           px-4 py-2 rounded-xl transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-sage-200
+           bg-white/80 text-sage-900 placeholder-sage-400
+           focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .badge-todo {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-cream-200 text-sage-700;
+  }
+
+  .badge-inprogress {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-gold-100 text-gold-700;
+  }
+
+  .badge-done {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-sage-100 text-sage-700;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sage-200
+           hover:bg-white/10 hover:text-white transition-all duration-200
+           cursor-pointer font-medium;
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl
+           bg-white/20 text-white shadow-md transition-all duration-200
+           cursor-pointer font-semibold;
+  }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-cream-100; }
+::-webkit-scrollbar-thumb { @apply bg-sage-300 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-sage-400; }
+
+/* ── Page transition ── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}

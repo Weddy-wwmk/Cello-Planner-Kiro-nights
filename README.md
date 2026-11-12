@@ -1,6 +1,7 @@
 # 🎻 Cello Planner
 
 > **AI-Powered Event Planning Ecosystem** — manage events, tasks, and attendees with OpenAI transcription and QR gate check-in, wrapped in a premium glassmorphism UI.
+> By Rehema Muchai and Weddy Karanja.
 
 ---
 
